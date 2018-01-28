@@ -22,7 +22,7 @@ let frame = () => {
         //update(step);
         // once per second
 
-        console.log("Once per second " + ciclesCounter++);
+        //console.log("Once per second " + ciclesCounter++);
   }
     last = now;
 

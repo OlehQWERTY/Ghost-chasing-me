@@ -2,11 +2,13 @@
 
 
 // event wrapper
-var keyEventControl = function(){
+var keyEventControlObj = function(){
 
 	var self = this;
 	this.WS = false;
 	this.AD = false;
+	this.keysArr = [];
+
 	this.init = function(){
 		document.addEventListener("keydown", self.keyPress); 
 		document.addEventListener("keyup", self.keyUp); 
@@ -14,48 +16,41 @@ var keyEventControl = function(){
 	this.keyPress = function(event){
 		var key = event.keyCode;
 		console.log("keyPress: " + key);		
-		//self.speed = speed;
-		//self.color = color;
+
+		// if(key === 65 | key === 68) self.AD = true;
+		// if(key === 83 | key === 87) self.WS = true;
+		console.log("indexOF: " + self.keysArr.indexOf(key));
+		if(self.keysArr.indexOf(key) === -1){
+			self.keysArr.push(key);
+			//self.keysArr.push(key);
+		}
+		console.log("Keys: " + self.keysArr);
+
+		self.moveObj(playerObj); // --------------------------------------------- send to init ..........
 	}
 	this.keyUp = function(event){
 		var key = event.keyCode;
 		console.log("keyUp: " + key);
-		//self.posX = posX;
-		//self.posY = posY;
+
+
+		var pos = self.keysArr.indexOf(key);
+		console.log("Pos: " + pos);
+		if(pos !== -1) self.keysArr.splice(pos, 1);
+	}
+	this.moveObj = function(Obj){
+		console.log("Obj.posX: " + Obj.posX + "Obj.posY: " + Obj.posY);
+		if(self.keysArr.indexOf(65) !== -1) Obj.posX -=Obj.speed; // obj e.x. player
+		if(self.keysArr.indexOf(68) !== -1) Obj.posX +=Obj.speed; // obj e.x. player
+		if(self.keysArr.indexOf(83) !== -1) Obj.posY +=Obj.speed; // obj e.x. player
+		if(self.keysArr.indexOf(87) !== -1) Obj.posY -=Obj.speed; // obj e.x. player
 	}
 
 	self.init();
 }
 
-var eventControl = new keyEventControl;
+var keyEventControl = new keyEventControlObj;
 
 
-// let AD = false,
-// 	WS = false;
-// // event connect
-// document.addEventListener("keydown", keyPress); 
-// document.addEventListener("keyup", keyUp); 
-// // event control functions
-// function keyPress(event){
-// 	var key = event.keyCode;
-// 	console.log("keyPress: " + key);		
-// 	//keyEventControl.keyPress(event);
-
-// 	if(AD & WS) console.log("AD + WS");
-
-// 	if(key === 65 | key === 68) AD = true;
-// 	if(key === 83 | key === 87) WS = true;
-
-// }
-
-// function keyUp(event){
-// 	var key = event.keyCode;
-// 	console.log("keyUp: " + key);
-// 	// keyEventControl.keyUp(event);	
-
-// 	if(key === 65 | key === 68) AD = false;
-// 	if(key === 83 | key === 87) WS = false;	
-// }
 
 
 
