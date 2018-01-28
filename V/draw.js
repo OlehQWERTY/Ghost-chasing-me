@@ -104,7 +104,17 @@ function drawObj(){
 		}
 	}
 	this.gameField = function(){
-		self.canvasPos = self.canvas.getBoundingClientRect(); // canvasPos.x & canvasPos.y
+		//self.canvasPos = self.canvas.getBoundingClientRect(); // canvasPos.x & canvasPos.y
+		//window.innerWidth window.innerHeight // window size
+		//console.log(self.canvasPos.x, self.canvasPos.y);
+	}
+	this.gameFieldCheckObj = function(Obj){ // obj isn't out of game field
+		//self.gameField(); // get field size
+		if(Obj.posX > 0 && (Obj.posX + Obj.sizePx) < window.innerWidth && 
+			Obj.posY > 0 && (Obj.posY + Obj.sizePx) < window.innerHeight){
+			return true;
+		}
+		return false;
 	}
 	this.showPlayer = function(){ // obj as parameter
 		//ctx.clearRect(0, 0, 480, 320); // (0, 0, ctx.width, ctx.height)
@@ -115,8 +125,8 @@ function drawObj(){
 		self.ctx.closePath();
 	}
 	this.clearWindow = function(){
-		this.gameField();
-		self.ctx.clearRect(0, 0, self.canvasPos.x, self.canvasPos.y); // (0, 0, ctx.width, ctx.height)
+		//self.gameField();
+		self.ctx.clearRect(0, 0, window.innerWidth, window.innerHeight); // (0, 0, ctx.width, ctx.height)
 		//console.log(self.canvasPos);
 	}
 	this.unsupportedResolution = function(){

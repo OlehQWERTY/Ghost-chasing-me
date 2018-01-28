@@ -21,13 +21,16 @@ let frame = () => {
         dt = dt - slowStep;
         //update(step);
         // once per second
+        //if(keyEventControl.moveLim(playerObj)) alert("You are out of game field!"); //!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        if(!keyEventControl.moveLim(playerObj)) console.log("Out of game field");
 
+        //console.log("playerX: " + playerObj.posX, " playerY: " + playerObj.posY);
         //console.log("Once per second " + ciclesCounter++);
   }
     last = now;
 
-    View.showPlayer(); // change it to normal approach
     View.clearWindow();
+    View.showPlayer(); // change it to normal approach
     //console.log("Render " + renderCiclesCounter++); // fast loop
     //console.log(dt / slomo * fps);
     //render(dt / slomo * fps);
