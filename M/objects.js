@@ -26,11 +26,11 @@ function basicObj(){
 
 var playerObj = new basicObj;
 playerObj.init(40, 5, 'rgba(0, 0, 200, 0.5)');
-playerObj.pos(0.5, 0.5);
+playerObj.pos(100, 100);
 
 var enemyObj = new basicObj;
-enemyObj.init(40, 2, 'rgba(200, 0, 0, 0.5)');
-enemyObj.pos(0, 0);
+enemyObj.init(40, 10, 'rgba(200, 0, 0, 0.5)');
+enemyObj.pos(300, 300);
 
 // var Vasy = new PlayerObj("Pety");
 // Vasy.playerInitParam(2, 125);

@@ -103,11 +103,10 @@ function drawObj(){
 			alert("Please update your browser, because it doesn't support canvas.");
 		}
 	}
-	this.gameField = function(){
-		//self.canvasPos = self.canvas.getBoundingClientRect(); // canvasPos.x & canvasPos.y
-		//window.innerWidth window.innerHeight // window size
-		//console.log(self.canvasPos.x, self.canvasPos.y);
-	}
+	// this.gameField = function(){
+	// 	self.canvasPos = self.canvas.getBoundingClientRect(); // canvasPos.x & canvasPos.y
+	// 	window.innerWidth window.innerHeight // window size
+	// }
 	this.gameFieldCheckObj = function(Obj){ // obj isn't out of game field
 		//self.gameField(); // get field size
 		if(Obj.posX > 0 && (Obj.posX + Obj.sizePx) < window.innerWidth && 
@@ -116,18 +115,15 @@ function drawObj(){
 		}
 		return false;
 	}
-	this.showPlayer = function(){ // obj as parameter
-		//ctx.clearRect(0, 0, 480, 320); // (0, 0, ctx.width, ctx.height)
+	this.showObject = function(Obj){ // obj as parameter
 		self.ctx.beginPath();
-		self.ctx.rect(playerObj.posX, playerObj.posY, playerObj.sizePx, playerObj.sizePx); // obj.posX ...
-		self.ctx.fillStyle = playerObj.color; // 'rgba(0, 0, 200, 0.5)'
+		self.ctx.rect(Obj.posX, Obj.posY, Obj.sizePx, Obj.sizePx); // obj.posX ...
+		self.ctx.fillStyle = Obj.color; // 'rgba(0, 0, 200, 0.5)'
 		self.ctx.fill();
 		self.ctx.closePath();
 	}
 	this.clearWindow = function(){
-		//self.gameField();
 		self.ctx.clearRect(0, 0, window.innerWidth, window.innerHeight); // (0, 0, ctx.width, ctx.height)
-		//console.log(self.canvasPos);
 	}
 	this.unsupportedResolution = function(){
 		alert("Sorry, we don't support your device resolution " +
