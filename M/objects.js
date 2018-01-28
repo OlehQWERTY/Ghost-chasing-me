@@ -10,6 +10,18 @@ function basicObj(){
 		self.posX = posX;
 		self.posY = posY;
 	}
+	this.move = function(moveFunc){
+		moveFunc(self.posX, self.posY);
+	}
+	this.colision = function(obj){
+		//if(self.posX)
+
+	// if(playerObj.posX > (480 - playerObj.sizePx)) { // 40 - player size  // if(playerX > (ctx.width - playerSizeX))
+	// 	playerObj.posX = 480 - playerObj.sizePx;
+	// } else if(playerObj.posX < 0) {
+	// 	playerObj.posX = 0;
+	// }
+	}
 }
 
 var playerObj = new basicObj;
