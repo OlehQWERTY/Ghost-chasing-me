@@ -35,23 +35,24 @@ var keyEventControlObj = function(){
 	this.moveEnemyFollowTheObj = function(Obj){ // obj player
 		// debugger;
 		var possibleMovement = []; // optimise
-		possibleMovement.push({posX: (Obj.posX - Obj.speed), posY: Obj.posY});
 		possibleMovement.push({posX: (Obj.posX + Obj.speed), posY: Obj.posY});
-		possibleMovement.push({posX: Obj.posX, posY: (Obj.posY - Obj.speed)});
+		possibleMovement.push({posX: (Obj.posX - Obj.speed), posY: Obj.posY});
 		possibleMovement.push({posX: Obj.posX, posY: (Obj.posY + Obj.speed)});
+		possibleMovement.push({posX: Obj.posX, posY: (Obj.posY - Obj.speed)});
 
-		let min = distBetweenTwoPoints(possibleMovement[0], playerObj); // crutch here; if min 0 it is work like this
+		let min = distBetweenTwoPoints(playerObj, possibleMovement[0]); // crutch here; if min 0 it is work like this
 		let inx = 0;
 		for(var i in possibleMovement){
-			var tmp = distBetweenTwoPoints(possibleMovement[i], playerObj);
-			if(tmp < min){
+			var tmp = distBetweenTwoPoints(playerObj, possibleMovement[i]);
+			if(min > tmp){
 				min = tmp; // min element (not used now)
 				inx = i;
 			}
+			console.log("dist[" + i + "]: " + tmp);
 		}
-		console.log(possibleMovement);
+		//console.log(possibleMovement);
 		console.log("min: " + min);
-		return possibleMovement[inx];
+		return possibleMovement[inx]; // !!!!!!!!!!!!!!!!!!!!!!!!!!! maybie index problem ??????????
 	}
 	this.moveEnemy = function(Obj){
 		var tmp = self.moveEnemyFollowTheObj(Obj);
@@ -59,8 +60,8 @@ var keyEventControlObj = function(){
 		Obj.posY = tmp.posY;
 	}
 	function distBetweenTwoPoints(Obj1, Obj2) { // (x, y) and (x1, y1)
-		var dist = Math.sqrt(Math.abs(Math.pow((Obj1.posX - Obj2.posX), 2) + Math.pow((Obj1.posY - Obj2.posX), 2)));
-		console.log("Dist: " + dist);
+		var dist = Math.sqrt(Math.abs(Math.pow((Obj1.posX - Obj2.posX), 2) + Math.pow((Obj1.posY - Obj2.posY), 2)));
+		//console.log("Dist: " + dist);
 		return dist;
 	}
 	this.moveLim = function(Obj){ // obj player !!!!!!!!!!!!!!!!!!!!!!!!!!!!!! + draw obj

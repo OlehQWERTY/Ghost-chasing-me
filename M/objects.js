@@ -25,7 +25,7 @@ function basicObj(){
 }
 
 var playerObj = new basicObj;
-playerObj.init(40, 5, 'rgba(0, 0, 200, 0.5)');
+playerObj.init(40, 10, 'rgba(0, 0, 200, 0.5)');
 playerObj.pos(100, 100);
 
 var enemyObj = new basicObj;
