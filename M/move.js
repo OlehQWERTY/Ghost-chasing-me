@@ -1,8 +1,5 @@
-// playerObj
 
-// event wrapper
 var keyEventControlObj = function(){
-
 	var self = this;
 	this.keysArr = [];
 
@@ -45,14 +42,12 @@ var keyEventControlObj = function(){
 		for(var i in possibleMovement){
 			var tmp = distBetweenTwoPoints(playerObj, possibleMovement[i]);
 			if(min > tmp){
-				min = tmp; // min element (not used now)
+				min = tmp; // min element
 				inx = i;
 			}
-			console.log("dist[" + i + "]: " + tmp);
+			//console.log("dist[" + i + "]: " + tmp);
 		}
-		//console.log(possibleMovement);
-		console.log("min: " + min);
-		return possibleMovement[inx]; // !!!!!!!!!!!!!!!!!!!!!!!!!!! maybie index problem ??????????
+		return possibleMovement[inx];
 	}
 	this.moveEnemy = function(Obj){
 		var tmp = self.moveEnemyFollowTheObj(Obj);
@@ -81,14 +76,3 @@ var keyEventControlObj = function(){
 }
 
 var keyEventControl = new keyEventControlObj;
-
-
-
-
-
-// function distBetweenTwoPoints(x, y) { // x y and playerX playerY
-// 	var dist = Math.sqrt(Math.abs(Math.pow((playerX - x), 2) + Math.pow((playerY - y), 2)));
-// 	console.log(dist);
-// 	console.log("kokok");
-// 	return dist;
-// }

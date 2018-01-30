@@ -1,91 +1,3 @@
-// var canvas = document.getElementById("myCanvas");
-// if (canvas.getContext) {
-//   var ctx = canvas.getContext('2d');
-//   // drawing code here
-// } else {
-// 	alert("Your browser doesn't support canvas.");
-//   // canvas-unsupported code here
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-// myCanvas.addEventListener("click", canvElemCollision);
-
-// document.addEventListener("keydown", playerMove); 
-
-// function getClickPosition(event) {
-// 	var x = event.clientX;
-// 	var y = event.clientY;
-// 	console.log("click: X = " + x + " Y = " + y);
-// 	return {x, y};
-// }
-
-// function canvElemCollision(event) {
-// 	var clickPos = getClickPosition(event);
-
-// }
-
-// function keyPress(event) {
-// 	var key = event.keyCode;
-// 	//alert(key);
-// 	console.log("Key: " + key);
-// 	return key;
-// }
-
-// function playerMove(event) {
-// 	var key = keyPress(event);
-
-// 	if(key === 65) playerObj.posX -= playerObj.speed; // A
-// 	if(key === 68) playerObj.posX += playerObj.speed; // D
-// 	if(key === 87) playerObj.posY -= playerObj.speed; // W
-// 	if(key === 83) playerObj.posY += playerObj.speed; // S
-	
-
-// 	if(playerObj.posX > (480 - playerObj.sizePx)) { // 40 - player size  // if(playerX > (ctx.width - playerSizeX))
-// 		playerObj.posX = 480 - playerObj.sizePx;
-// 	} else if(playerObj.posX < 0) {
-// 		playerObj.posX = 0;
-// 	}
-
-// 	if(playerObj.posY > (320 - playerObj.sizePx)) { // 40 - player size // ctx.height - playerSizeY
-// 		playerObj.posY = 320 - playerObj.sizePx;
-// 	} else if(playerObj.posY < 0) {
-// 		playerObj.posY = 0;
-// 	}
-// }
-
-
-
-
-
-
-
-// var canvasPos = canvas.getBoundingClientRect();
-// // console.log(canvasPos);
-// // console.log(canvasPos.x);
-// // console.log(canvasPos.y);
-
-
-// function showPlayer() {
-// 	//ctx.clearRect(0, 0, 480, 320); // (0, 0, ctx.width, ctx.height)
-// 	ctx.beginPath();
-// 	ctx.rect(playerObj.posX, playerObj.posY, playerObj.sizePx, playerObj.sizePx);
-// 	ctx.fillStyle = playerObj.color; // 'rgba(0, 0, 200, 0.5)'
-// 	ctx.fill();
-// 	ctx.closePath();
-// }
-
-///////////////////////////////
-
 function drawObj(){
 	var self = this;
 	this.init = function(){
@@ -122,8 +34,25 @@ function drawObj(){
 		self.ctx.fill();
 		self.ctx.closePath();
 	}
+	this.showImg = function(id, x, y){ // "player", 50, 10
+		var img = document.getElementById(id);
+		self.ctx.drawImage(img, x, y);
+	}
+	this.showText = function(string, color, x, y){
+		self.ctx.font = "20px Vernada";
+		self.ctx.fillStyle = color;
+		self.ctx.fillText(string, x, y);
+	}
 	this.clearWindow = function(){
 		self.ctx.clearRect(0, 0, window.innerWidth, window.innerHeight); // (0, 0, ctx.width, ctx.height)
+		// move to appropriate place
+		// var img = document.getElementById("player");
+		// self.ctx.drawImage(img, 50, 10);
+		// var img1 = document.getElementById("enemy");
+		// self.ctx.drawImage(img1, 80, 10);
+		// self.ctx.font = "20px Vernada";
+		// self.ctx.fillStyle = "black";
+		// self.ctx.fillText("Health", 200, 30);
 	}
 	this.unsupportedResolution = function(){
 		alert("Sorry, we don't support your device resolution " +
@@ -133,6 +62,7 @@ function drawObj(){
 
 var drawObj1 = new drawObj; // move to main controler
 drawObj1.init();
+
 
 
 
