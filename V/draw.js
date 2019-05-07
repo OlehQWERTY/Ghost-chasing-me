@@ -27,6 +27,23 @@ function drawObj(){
 		}
 		return false;
 	}
+	this.getImgSize = function(id){  // id = 'player' from <img id="player"...
+		var img = document.getElementById(id);
+		var width = img.width;
+		var height = img.height;
+		return {'w': width, 'h': height};
+	}
+	this.showCharacter = function(Obj){  // obj with img under it's detection box
+		this.showObject(Obj);
+		self.size = this.getImgSize(Obj.imgName)
+		// console.log("ImgSize:", "w -", self.size.w, "h -", self.size.h);
+		if(self.size.w === self.size.h){  // put img in the middle of obj box
+			self.sizeDelta = Obj.sizePx - self.size.w;
+			this.showImg(Obj.imgName, Obj.posX + (self.sizeDelta/2), Obj.posY + (self.sizeDelta/2))
+		}else{
+			this.showImg(Obj.imgName, Obj.posX, Obj.posY)
+		}
+	}
 	this.showObject = function(Obj){ // obj as parameter
 		self.ctx.beginPath();
 		self.ctx.rect(Obj.posX, Obj.posY, Obj.sizePx, Obj.sizePx); // obj.posX ...

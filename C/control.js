@@ -1,4 +1,4 @@
-// events
+// events (not used now)
 
 myCanvas.addEventListener("click", canvElemCollision);
 //drawObj1.canvas.addEventListener("click, canvElemCollision");

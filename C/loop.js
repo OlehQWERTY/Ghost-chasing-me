@@ -31,18 +31,23 @@ let frame = () => {
     last = now;
 
     View.clearWindow();
-    View.showObject(playerObj); // change it to normal approach
-    View.showObject(enemyObj); // change it to normal approach
-    View.showObject(enemyObj1); // enemy num 2
+    // View.showObject(playerObj); // change it to normal approach
+    // View.showObject(enemyObj); // change it to normal approach
+    // View.showObject(enemyObj1); // enemy num 2
 
-    View.showImg("player", 50, 50); // moove to appropriate place
-    View.showImg("enemy", 80, 50);
-    View.showText("Text" + " Text2", "black", 100, 50);
+    View.showCharacter(playerObj); // change it to normal approach
+    View.showCharacter(enemyObj); // change it to normal approach
+    View.showCharacter(enemyObj1); // enemy num 2
+
+    // View.showImg("player", 50, 50); // moove to appropriate place
+    // View.showImg("enemy", 80, 50);
+    // View.showText("Text" + " Text2", "black", 100, 50);
 
     keyEventControl.moveLim(playerObj);
     keyEventControl.moveLim(enemyObj);
     keyEventControl.moveLim(enemyObj1);
-    
+
+    console.log("mouseDown:" + keyEventControl.mouseDown());
     //console.log("Render " + renderCiclesCounter++); // fast loop
     //console.log(dt / slomo * fps);
     //render(dt / slomo * fps);
