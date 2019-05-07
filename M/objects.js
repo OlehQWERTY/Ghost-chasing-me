@@ -26,7 +26,7 @@ playerObj.init(40, 10, 'transparent', 'player');  // invisible box under img
 playerObj.pos(100, 100);
 
 var enemyObj = new basicObj;
-enemyObj.init(40, 10, 'transparent', 'enemy');
+enemyObj.init(40, 40, 'transparent', 'enemyZombie');
 // enemyObj.init(40, 10, 'rgba(200, 0, 0, 0.5)', 'enemy');
 enemyObj.pos(300, 300);
 

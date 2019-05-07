@@ -47,7 +47,8 @@ let frame = () => {
     keyEventControl.moveLim(enemyObj);
     keyEventControl.moveLim(enemyObj1);
 
-    console.log("mouseDown:" + keyEventControl.mouseDown());
+    // console.log("mouseDown:" + keyEventControl.mouseDown());
+    
     //console.log("Render " + renderCiclesCounter++); // fast loop
     //console.log(dt / slomo * fps);
     //render(dt / slomo * fps);
