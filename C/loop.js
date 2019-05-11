@@ -39,6 +39,13 @@ let frame = () => {
     View.showCharacter(enemyObj); // change it to normal approach
     View.showCharacter(enemyObj1); // enemy num 2
 
+    // View.showCharacter(obsticle); // obsticles
+
+    for(i = 0; i<obsticles.length; i++){
+        // console.log(obsticles[i].posX, obsticles[i].posY)
+        View.showCharacter(obsticles[i]); // obsticles
+    }
+
     // View.showImg("player", 50, 50); // moove to appropriate place
     // View.showImg("enemy", 80, 50);
     // View.showText("Text" + " Text2", "black", 100, 50);
